@@ -1,0 +1,56 @@
+[modbus]
+serial_if="/dev/ttyUSB0"
+serial_if_baud=19200
+serial_if_byte=8
+serial_if_par="E"
+serial_if_stop=1
+slave_addr=1
+timeout=0.6
+
+
+[db]
+db = "<db_adapter>"  # "postgresql" | "mysql" | "sqlite" | "postgrest"
+
+    [db.postgresql]
+    database = "<db>"
+    user = "<user>"
+    password = "<pw>"
+    host = "<host>"
+    port = 0
+
+    [db.mysql]
+    database = "<db>"
+    user = "<user>"
+    password = "<pw>"
+    host = "<host>"
+    port = 0
+
+    [db.sqlite]
+    database = ":memory:"  # Pfad zu Datenbankdatei oder :memory:
+
+    [db.postgrest]
+    url = "<url>"
+    user = "<user>"
+    token = "<token>"
+    table = "<table>"
+
+[mqtt]
+broker = "<mqttBroker>"
+port = "<mqtt Port>"
+username = "<username>" # empty disables authentication
+password = "<password>" # empty disables authentication
+topic = "<topic>" # empty defaults to /smartmeter/
+is_active = false # aktiv wenn true, inaktiv wenn false
+
+[telegram_bot]
+token = "<telegrambot_token>"  # Token oder false, false ohne " " schreiben
+
+
+[mess_cfg]
+# Auswahl des verwendeten Models
+# Verfügbar: DDS353B, SDM72DM, SDM230, SDM530, SDM630
+device = "<modelname>"
+messintervall = 10  # in Sekunden
+schnelles_messintervall = 1  # in Sekunden
+dauer_schnelles_messintervall = 30 # in Sekunden
+intervall_daten_senden = 30 # in Sekunden
