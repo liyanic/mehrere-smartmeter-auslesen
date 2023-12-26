@@ -1,0 +1,8 @@
+minimalmodbus
+peewee
+pyserial
+requests
+toml
+systemd-python
+paho-mqtt
+threading
